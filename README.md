@@ -65,14 +65,20 @@ record = {
 }
 
 //Check if value is a number
+
 try:
     float(record["value"])
+    
 except ValueError:
+
     print(f"Invalid value: {record['value']} for sensor {record['sensor_id']}")
    
 //Check if timestamp matches ISO 8601
+
 iso_pattern = r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z"
+
 if not re.match(iso_pattern, record["timestamp"]):
+
     print(f"Invalid timestamp: {record['timestamp']} for sensor {record['sensor_id']}")
 
 # Task 3: Data Governance & Security
@@ -82,17 +88,24 @@ if not re.match(iso_pattern, record["timestamp"]):
 Modified Record Example:
 {
   "sensor_id": "T101",
+  
   "sensor_type": "traffic",
+  
   "value": 45,
+  
   "timestamp": "2025-07-30T08:30:00Z",
+  
   "data_source_veracity": "high",
+  
   "access_level": "Internal"
 }
+
 This "access_level" field could help control who can view or process the record.
 
 3. Breach Implications
    
 -Competitive Disadvantage: A rival company could use traffic data to optimize their own services, undermining our business.
+
 -Loss of Trust: Citizens and partners might stop sharing or using our platform due to perceived insecurity, hurting reputation and revenue.
 
 5. Authority and Control
