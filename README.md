@@ -4,8 +4,10 @@
 1. Variety
    
 Variety refers to the diversity of data types. JONSON data is semi- structured because this data supports nesting and irregular formats between entries, dataset contain different types of data
+
 Example:
 -Different sensor type E.g (“sensor_type”: “temperature” and “sensor_type”: “traffic”.
+
 -Mixed value format : some readings are numeric(“value”:22.5)  while others might be categorical(“status”: “active”)
 This demonstrates the variety because the data include multiple formats
 
@@ -16,10 +18,12 @@ This demonstrates the variety because the data include multiple formats
 4. Veracity
    
  It refers to the quality and accuracy of data.The data_source_veracity field likely represents how trustworthy or accurate the data source is (e.g., "high", "low", or null). A null value means we can’t verify the data’s reliability.Example:
+ 
 {
   "sensor_id": "T101",
   "data_source_veracity": null
 }
+
 This record may be unreliable and poses a veracity issue.
 
 5. Volume
@@ -32,9 +36,11 @@ This refers to the value that big data can provide, and it relates directly to w
 
   # Task 2: Data Quality Assessment
 
-1. Data Quality: Means  how good and reliable data is.which based on accurate, up-to-date, Complete with data in every field unless explicitly deemed optional, Unique so that there is only one record for a given entity and context, formatted the same across all data sources and trusted by those that rely on the data  
+1. Data Quality
+   
+Means how good and reliable data is.which based on accurate, up-to-date, Complete with data in every field unless explicitly deemed optional, Unique so that there is only one record for a given entity and context, formatted the same across all data sources and trusted by those that rely on the data  
 
-2. Identify Issues
+4. Identify Issues
    
 -Missing values:Some records have null in critical fields like value or timestamp.
       Problem: Missing data reduces accuracy and breaks calculations.
@@ -46,12 +52,18 @@ This refers to the value that big data can provide, and it relates directly to w
 4. Practical Step
    
 -PYTHON
+
 mport re
+
 record = {
+
     "sensor_id": "T101",
+    
     "value": "twenty",
+    
     "timestamp": "2025-07-30 08:30"
 }
+
 //Check if value is a number
 try:
     float(record["value"])
