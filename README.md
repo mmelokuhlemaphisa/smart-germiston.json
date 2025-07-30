@@ -8,16 +8,16 @@ Variety refers to the diversity of data types. JONSON data is semi- structured b
 Example:
 -Different sensor type E.g (“sensor_type”: “temperature” and “sensor_type”: “traffic”.
 
--Mixed value format : some readings are numeric(“value”:22.5)  while others might be categorical(“status”: “active”)
+-Mixed value format : some readings are numeric(“value”:22.5)  while others might be          categorical(“status”: “active”)
 This demonstrates the variety because the data include multiple formats
 
 2. Velocity
    
- Velocity refers to how quickly data is generated and how quickly that data moves. if we were receiving real-time data from thousands of sensors, managing the speed at which it arrives is critical. Without proper handling (e.g., stream processing), we risk delays, overload, or even system crashes—especially during emergencies where real-time decisions are needed.
+Velocity refers to how quickly data is generated and how quickly that data moves. if we were receiving real-time data from thousands of sensors, managing the speed at which it arrives is critical. Without proper handling (e.g., stream processing), we risk delays, overload, or even system crashes—especially during emergencies where real-time decisions are needed.
 
 3. Veracity
    
- It refers to the quality and accuracy of data.The data_source_veracity field likely represents how trustworthy or accurate the data source is (e.g., "high", "low", or null). A null value means we can’t verify the data’s reliability.Example:
+ It refers to the quality and accuracy of data.The data_source_veracity field likely represents how       trustworthy or accurate the data source is (e.g., "high", "low", or null). A null value means we can’t   verify the data’s reliability.Example:
  
 {
   "sensor_id": "T101",
@@ -42,12 +42,12 @@ Means how good and reliable data is.which based on accurate, up-to-date, Complet
 
 2. Identify Issues
    
--Missing values:Some records have null in critical fields like value or timestamp.
+-Missing values: Some records have null in critical fields like value or timestamp.
       Problem: Missing data reduces accuracy and breaks calculations.
 -Inconsistent formats:Timestamps not using ISO 8601 (2023-04-25 13:00 instead of 2023-04-25T13:00:00Z).
-     Problem: Causes parsing errors and affects time-based analytics.
--Invalid data types:Some value fields contain strings like "twenty" instead of numbers.
-    Problem: Prevents numeric calculations and visualizations.
+      Problem: Causes parsing errors and affects time-based analytics.
+-Invalid data types: Some value fields contain strings like "twenty" instead of numbers.
+      Problem: Prevents numeric calculations and visualizations.
    
 3. Practical Step
    
@@ -85,9 +85,10 @@ if not re.match(iso_pattern, record["timestamp"]):
 
 1. Access Control
    
-Modified Record Example:
+    Modified Record Example:
 
 {
+
   "sensor_id": "T101",
   
   "sensor_type": "traffic",
@@ -99,17 +100,18 @@ Modified Record Example:
   "data_source_veracity": "high",
   
   "access_level": "Internal"
+  
 }
 
 This "access_level" field could help control who can view or process the record.
 
 2. Breach Implications
    
--Competitive Disadvantage: A rival company could use traffic data to optimize their own services, undermining our business.
+  -Competitive Disadvantage: A rival company could use traffic data to optimize their own services,         undermining our business.
 
--Loss of Trust: Citizens and partners might stop sharing or using our platform due to perceived insecurity, hurting reputation and revenue.
+  -Loss of Trust: Citizens and partners might stop sharing or using our platform due to perceived           insecurity, hurting reputation and revenue.
 
 3. Authority and Control
    
-The Chief Data Officer (CDO) or a Data Governance Committee should define access levels. Unlike developers or project managers, they:Understand compliance laws (e.g., POPIA, GDPR), Manage enterprise-wide data strategy, Balance security, privacy, and utility
+The Chief Data Officer (CDO) or a Data Governance Committee should define access levels. Unlike developers or project managers, they:Understand compliance laws (e.g., POPIA, GDPR), Manage enterprise-wide data strategy, Balance security, privacy, and utility.
 
