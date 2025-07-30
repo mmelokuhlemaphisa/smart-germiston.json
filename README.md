@@ -86,6 +86,7 @@ if not re.match(iso_pattern, record["timestamp"]):
 1. Access Control
    
 Modified Record Example:
+
 {
   "sensor_id": "T101",
   
